@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.site.twitevent.server.domain.Usuario;
+import com.site.twitevent.server.domain.User;
 
 public class DatabaseControl implements UsuarioDAO {
 	
@@ -51,7 +51,7 @@ public class DatabaseControl implements UsuarioDAO {
 	}
 	
 	@Override
-	public Usuario getUsuario(String usuario) throws SQLException {
+	public User getUsuario(String usuario) throws SQLException {
 		String var_usuario = "", senha = "";
 		
 		PreparedStatement s = con.prepareStatement(SELECT_USUARIO);
@@ -65,15 +65,15 @@ public class DatabaseControl implements UsuarioDAO {
 		
 		if (var_usuario == "")
 			return null;
-		return new Usuario(var_usuario, senha);
+		return new User(var_usuario, senha);
 	}
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		DatabaseControl db = new DatabaseControl();
-		Usuario a = db.getUsuario("Andre");
+		User a = db.getUsuario("Andre");
 		System.out.println(a.getUsuario());
-		System.out.println(a.mudarSenha("", "123"));
-		System.out.println(a.mudarSenha("123", "a"));
-		System.out.println(a.mudarSenha("a", "a"));
+		System.out.println(a.changePassword("", "123"));
+		System.out.println(a.changePassword("123", "a"));
+		System.out.println(a.changePassword("a", "a"));
 	}
 }
