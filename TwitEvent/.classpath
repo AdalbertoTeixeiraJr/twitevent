@@ -5,5 +5,7 @@
 	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/ARTHUR/Documents/André/Projetos/twitevent/JARs/gxt-2.2.5-gwt22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ARTHUR/Documents/André/Projetos/twitevent/JARs/postgresql-9.1-901.jdbc4.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
