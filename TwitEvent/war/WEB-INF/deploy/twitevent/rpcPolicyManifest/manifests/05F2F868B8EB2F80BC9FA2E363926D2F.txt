@@ -1,2 +1,0 @@
-serviceClass: com.site.twitevent.client.GreetingService
-path: 8CBFCB5F2D8AA6E46D2C247FFB10A946.gwt.rpc

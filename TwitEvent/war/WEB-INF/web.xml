@@ -7,13 +7,13 @@
 
   <!-- Servlets -->
   <servlet>
-    <servlet-name>TwitEventServiceImpl</servlet-name>
-    <servlet-class>com.site.twitevent.server.TwitEventServiceImpl</servlet-class>
+    <servlet-name>VerifierServiceImpl</servlet-name>
+    <servlet-class>com.site.twitevent.server.VerifierServiceImpl</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>TwitEventServiceImpl</servlet-name>
-    <url-pattern>/twitevent/twitEventService</url-pattern>
+    <servlet-name>VerifierServiceImpl</servlet-name>
+    <url-pattern>/twitevent/verifier</url-pattern>
   </servlet-mapping>
   
   <!-- Default page to serve -->

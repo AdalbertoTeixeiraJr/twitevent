@@ -1,0 +1,2 @@
+serviceClass: com.site.twitevent.client.VerifierService
+path: 4648CA3AE0343A7AD221285818B8606F.gwt.rpc
