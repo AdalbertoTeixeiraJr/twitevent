@@ -1,0 +1,2 @@
+serviceClass: com.site.twitevent.client.TwitterUserService
+path: BDBA3298068E594CF334A4FF24644EE8.gwt.rpc
