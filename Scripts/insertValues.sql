@@ -1,0 +1,1 @@
+INSERT INTO twitterUser VALUES ('Andre', '123');
