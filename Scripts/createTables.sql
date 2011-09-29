@@ -1,5 +1,5 @@
-CREATE TABLE twitterUser (
-	email CHARACTER(255),
-	password CHARACTER(255) NOT NULL,
-	CONSTRAINT pk_twtitterUser PRIMARY KEY (email)
+CREATE TABLE user (
+	email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	PRIMARY KEY (`email`)
 );

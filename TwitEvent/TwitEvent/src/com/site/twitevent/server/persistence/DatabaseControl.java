@@ -8,19 +8,19 @@ public class DatabaseControl {
 	
 	private static DatabaseControl instance;
 
-    public final String driver = "org.postgresql.Driver";
-    private final String postgres = "jdbc:postgresql:";
+    public final String driver = "com.mysql.jdbc.Driver";
+    private final String sgbd = "jdbc:mysql:";
     
     private String database = "twitevent";
-    private String username = "postgres";
+    private String username = "root";
     private String password = "1";
     private String host = "//localhost";
-    private String port = "5432";
+    private String port = "3306";
     private Connection con;
     
     private DatabaseControl() throws SQLException, ClassNotFoundException {
     	Class.forName(driver);
-        con = DriverManager.getConnection(this.postgres + this.host + ":" + this.port + "/" + this.database, this.username, this.password);
+        con = DriverManager.getConnection(this.sgbd + this.host + ":" + this.port + "/" + this.database, this.username, this.password);
 	}
     
     public static DatabaseControl getInstance() {

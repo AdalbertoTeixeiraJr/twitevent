@@ -4,15 +4,15 @@ import java.sql.SQLException;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.site.twitevent.client.TwitterUserService;
-import com.site.twitevent.server.persistence.DatabaseTwitterUserDao;
-import com.site.twitevent.server.persistence.TwitterUserDao;
+import com.site.twitevent.server.persistence.DatabaseUserDao;
+import com.site.twitevent.server.persistence.UserDao;
 import com.site.twitevent.shared.User;
 
 public class TwitterUserServiceImpl extends RemoteServiceServlet implements
 		TwitterUserService {
 	
 	private static final long serialVersionUID = 1L;
-	private TwitterUserDao twiterUser = new DatabaseTwitterUserDao();
+	private UserDao twiterUser = new DatabaseUserDao();
 	
 	@Override
 	public boolean insertUser(User user) {

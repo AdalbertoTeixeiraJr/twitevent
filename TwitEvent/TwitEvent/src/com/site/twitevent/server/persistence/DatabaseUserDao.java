@@ -6,16 +6,16 @@ import java.sql.SQLException;
 
 import com.site.twitevent.shared.User;
 
-public class DatabaseTwitterUserDao implements TwitterUserDao {
+public class DatabaseUserDao implements UserDao {
 	
 	private DatabaseControl dc;
 	
-	private final static String INSERT_USER = "INSERT INTO twitterUser VALUES (?, ?);";
-	private final static String SELECT_USER = "SELECT * FROM twitterUser WHERE email = ?;";
-	private final static String UPDATE_USER = "UPDATE twitteruser SET email = ?, password = ? WHERE email = ?";
-	private final static String DELETE_USER = "DELETE FROM twitterUser WHERE email = ?;";
+	private final static String INSERT_USER = "INSERT INTO user VALUES (?, ?);";
+	private final static String SELECT_USER = "SELECT * FROM user WHERE email = ?;";
+	private final static String UPDATE_USER = "UPDATE user SET email = ?, password = ? WHERE email = ?";
+	private final static String DELETE_USER = "DELETE FROM user WHERE email = ?;";
 	
-	public DatabaseTwitterUserDao() {
+	public DatabaseUserDao() {
 		dc = DatabaseControl.getInstance();
 	}
 	

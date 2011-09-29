@@ -1,1 +1,1 @@
-DROP TABLE twitterUser;
+DROP TABLE user;

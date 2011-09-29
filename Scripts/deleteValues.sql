@@ -1,1 +1,1 @@
-DELETE FROM twitterUser;
+DELETE FROM user;
