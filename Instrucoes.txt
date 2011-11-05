@@ -1,3 +1,0 @@
-- A senha de root do mySql deve ser "1"
-- certificar que o BD estava usando a porta 3306
-- criar o database "twitevent"
