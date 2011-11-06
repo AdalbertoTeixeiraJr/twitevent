@@ -17,7 +17,6 @@ class EventosController extends AppController {
 		}
 		$evento = $this->Evento->read(null, $id);
 		$this->set('evento', $evento);
-		debug($evento);
 	}
 
 	function add() {
@@ -47,6 +46,15 @@ class EventosController extends AppController {
 			$this->Session->setFlash(__('Invalid evento', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		
+		$usuario = $this->Session->read("Usuario");
+		$evento = $this->Evento->read(null, $id);
+		if ($evento['Evento']['usuario_id'] != $usuario['id']) {
+			$this->Session->setFlash(__('Esse evento não é seu!', true));
+			$this->redirect(array('action' => 'index'));
+			exit;
+		}
+		
 		if (!empty($this->data)) {
 			if ($this->Evento->save($this->data)) {
 				$this->Session->setFlash(__('The evento has been saved', true));
@@ -69,6 +77,15 @@ class EventosController extends AppController {
 			$this->Session->setFlash(__('Invalid id for evento', true));
 			$this->redirect(array('action'=>'index'));
 		}
+		
+		$usuario = $this->Session->read("Usuario");
+		$evento = $this->Evento->read(null, $id);
+		if ($evento['Evento']['usuario_id'] != $usuario['id']) {
+			$this->Session->setFlash(__('Esse evento não é seu!', true));
+			$this->redirect(array('action' => 'index'));
+			exit;
+		}
+		
 		if ($this->Evento->delete($id)) {
 			$this->Session->setFlash(__('Evento deleted', true));
 			$this->redirect(array('action'=>'index'));
