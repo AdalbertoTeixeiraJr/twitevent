@@ -87,8 +87,9 @@
 					<td><?php echo $ev['Evento']['Evento']['preco'];?></td>
 					<td><?php echo $ev['confirmacao'];?></td>
 					<td class="actions">
-							<?php echo $this->Html->link(__('Vou', true), array('controller' => 'eventos', 'action' => 'add_confirmacao', $evento['id'], "vou")); ?>
-							<?php echo $this->Html->link(__('Talvez', true), array('controller' => 'eventos', 'action' => 'view', $evento['id'])); ?>
+							<?php echo $this->Html->link(__('Vou', true), array('controller' => 'usuarios', 'action' => 'add_confirmacao', $ev['Evento']['Evento']['id'], "vou")); ?>
+							<?php echo $this->Html->link(__('Talvez', true), array('controller' => 'usuarios', 'action' => 'add_confirmacao', $ev['Evento']['Evento']['id'], "talvez")); ?>
+							<?php echo $this->Html->link(__('Cancelar', true), array('controller' => 'usuarios', 'action' => 'delete_confirmacao', $ev['Evento']['Evento']['id'])); ?>
 						</td>
 					<td class="actions">
 						<?php echo $this->Html->link(__('Visualizar', true), array('controller' => 'eventos', 'action' => 'view', $ev['Evento']['Evento']['id'])); ?>
@@ -101,6 +102,9 @@
 	
 	<div class="related">
 		<h3><?php __('Eventos De Quem Estou Seguindo');?></h3>
+		<?php if (empty($eventos)) { ?>
+			Os usuarios que você está seguindo não possuem nenhum evento ainda.
+		<?php } ?>
 		<?php foreach ($eventos as $eventos_seguindo) { ?>
 			<?php $i = 0; ?>
 			<?php foreach ($eventos_seguindo as $evento) { ?>
@@ -131,8 +135,8 @@
 						<td><?php echo $evento['local'];?></td>
 						<td><?php echo $evento['preco'];?></td>
 						<td class="actions">
-							<?php echo $this->Html->link(__('Vou', true), array('controller' => 'eventos', 'action' => 'add_confirmacao', $evento['id'])); ?>
-							<?php echo $this->Html->link(__('Talvez', true), array('controller' => 'eventos', 'action' => 'view', $evento['id'])); ?>
+							<?php echo $this->Html->link(__('Vou', true), array('controller' => 'usuarios', 'action' => 'add_confirmacao', $evento['id'], "vou")); ?>
+							<?php echo $this->Html->link(__('Talvez', true), array('controller' => 'usuarios', 'action' => 'add_confirmacao', $evento['id'], "talvez")); ?>
 						</td>
 						<td class="actions">
 							<?php echo $this->Html->link(__('Visualizar', true), array('controller' => 'eventos', 'action' => 'view', $evento['id'])); ?>

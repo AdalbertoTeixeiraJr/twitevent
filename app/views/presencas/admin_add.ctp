@@ -3,6 +3,7 @@
 	<fieldset>
 		<legend><?php __('Admin Add Presenca'); ?></legend>
 	<?php
+		echo $this->Form->input('usuario_id');
 		echo $this->Form->input('evento_id');
 		echo $this->Form->input('confirmacao');
 	?>
@@ -14,6 +15,8 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Presencas', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Usuarios', true), array('controller' => 'usuarios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Usuario', true), array('controller' => 'usuarios', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Eventos', true), array('controller' => 'eventos', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Evento', true), array('controller' => 'eventos', 'action' => 'add')); ?> </li>
 	</ul>

@@ -20,14 +20,17 @@ class EventosController extends AppController {
 		debug($evento);
 	}
 
-	function add($user_id = null) {
-		$usuario = $this->Evento->Usuario->findById($user_id);
+	function add() {
+		$usuario = $this->Session->read("Usuario");
+		$usuario = $this->Evento->Usuario->read(null, $usuario['id']);
+
 		$this->set('usuario', $usuario);
 		if (!empty($this->data)) {
 			$this->Evento->create();
 			if ($this->Evento->save($this->data)) {
 				$data = $this->data;
-				$mensagem = $data['Evento']['titulo'] . '.Dia:' . $data['Evento']['data']['day'] . '/' . $data['Evento']['data']['month'] . '/' . $data['Evento']['data']['year'] . ' às ' . $data['Evento']['data']['hour'] . ':' . $data['Evento']['data']['min'] . ':' . $data['Evento']['data']['meridian'] . ' no(a) ' . $data['Evento']['local'] . '. Ingressos por R$' . $data['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $data['Evento']['usuario_id'], true);
+				$date = strtotime($data['Evento']['data']);
+				$mensagem = $data['Evento']['titulo'] . '. Dia:' . date('j', $date) . '/' . date('M', $date) . '/' . date('Y', $date) . ' às ' . date('g', $date) . ':' . date('i', $date) . ':' . date('A', $date) . ' em ' . $data['Evento']['local'] . '. Ingressos por R$' . $data['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $data['Evento']['usuario_id'], true);
 				$this->Session->setFlash(__('The evento has been saved', true));
 				$this->Twitter->updateStatus($mensagem);
 				$this->redirect(array('controller' => 'Usuarios', 'action' => 'view', $usuario['Usuario']['id']));
@@ -47,6 +50,8 @@ class EventosController extends AppController {
 		if (!empty($this->data)) {
 			if ($this->Evento->save($this->data)) {
 				$this->Session->setFlash(__('The evento has been saved', true));
+				$mensagem = $this->get_mensagem_para_divulgacao($this->data['Evento']['id']);
+				$this->Twitter->updateStatus($mensagem);
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The evento could not be saved. Please, try again.', true));
@@ -131,39 +136,13 @@ class EventosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function getMensagemParaDivulgacao($id = null) {
+	function get_mensagem_para_divulgacao($id = null) {
 		if (!$id) {
 			return "";
 		}
 		$evento = $this->Evento->read(null, $id);
-		$mensagem = $evento['Evento']['titulo'] . '. Dia:' . $evento['Evento']['data']['day'] . '/' . $evento['Evento']['data']['month'] . '/' . $evento['Evento']['data']['year'] . ' às ' . $evento['Evento']['data']['hour'] . ':' . $data['Evento']['data']['min'] . ':' . $evento['Evento']['data']['meridian'] . ' no(a) ' . $evento['Evento']['local'] . '. Ingressos por R$' . $data['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $evento['Evento']['usuario_id'], true);
+		$date = strtotime($evento['Evento']['data']);
+		$mensagem = $evento['Evento']['titulo'] . '. Dia:' . date('j', $date) . '/' . date('M', $date) . '/' . date('Y', $date) . ' às ' . date('g', $date) . ':' . date('i', $date) . ':' . date('A', $date) . ' em ' . $evento['Evento']['local'] . '. Ingressos por R$' . $evento['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $evento['Evento']['usuario_id'], true);
 		return $mensagem;
-	}
-	
-	function add_confirmacao($id = null, $confirmacao = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid evento', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$evento = $this->Evento->read(null, $id);
-		//$this->set('evento', $evento);
-		debug($evento);
-
-		/*$usuario = $this->Evento->Usuario->findById($user_id);
-		$this->set('usuario', $usuario);
-		if (!empty($this->data)) {
-			$this->Evento->create();
-			if ($this->Evento->save($this->data)) {
-				$data = $this->data;
-				$mensagem = $data['Evento']['titulo'] . '.Dia:' . $data['Evento']['data']['day'] . '/' . $data['Evento']['data']['month'] . '/' . $data['Evento']['data']['year'] . ' às ' . $data['Evento']['data']['hour'] . ':' . $data['Evento']['data']['min'] . ':' . $data['Evento']['data']['meridian'] . ' no(a) ' . $data['Evento']['local'] . '. Ingressos por R$' . $data['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $data['Evento']['usuario_id'], true);
-				$this->Session->setFlash(__('The evento has been saved', true));
-				$this->Twitter->updateStatus($mensagem);
-				$this->redirect(array('controller' => 'Usuarios', 'action' => 'view', $usuario['Usuario']['id']));
-			} else {
-				$this->Session->setFlash(__('The evento could not be saved. Please, try again.', true));
-			}
-		}
-		$usuarios = $this->Evento->Usuario->find('list');
-		$this->set(compact('usuarios'));*/
 	}
 }
