@@ -84,11 +84,6 @@ function loadAux(latitude, longitude){
 				</script>
 				&nbsp;
 			</dd>
-			<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Valor'); ?></dt>
-			<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-				<?php echo $evento['Evento']['valor']; ?>
-				&nbsp;
-			</dd>
 		</dl>
 	</div>
 	<div class="actions">

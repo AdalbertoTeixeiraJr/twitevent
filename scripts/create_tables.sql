@@ -8,18 +8,18 @@ CREATE TABLE `eventos` (
   `usuario_id` int(11) DEFAULT NULL,
   `descricao` text,
   `local` varchar(255) DEFAULT NULL,
-  `valor` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8$$
 
 delimiter $$
 
 CREATE TABLE `presencas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` int(11) NOT NULL,
   `evento_id` int(11) NOT NULL,
   `confirmacao` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`usuario_id`,`evento_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+  PRIMARY KEY (`id`,`usuario_id`,`evento_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8$$
 
 delimiter $$
 
@@ -39,4 +39,3 @@ CREATE TABLE `usuarios` (
   `description` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=395002143 DEFAULT CHARSET=utf8$$
-

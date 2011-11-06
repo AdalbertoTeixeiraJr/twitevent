@@ -10,7 +10,6 @@
 		echo $this->Form->input('usuario_id');
 		echo $this->Form->input('descricao');
 		echo $this->Form->input('local');
-		echo $this->Form->input('valor');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
