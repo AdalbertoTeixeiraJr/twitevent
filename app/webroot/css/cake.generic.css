@@ -23,7 +23,7 @@
 
 /** General Style Info **/
 body {
-	background: #003d4c;
+	background: url(images/background.png);
 	color: #fff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
@@ -94,21 +94,23 @@ ul, li {
 	background: #003d4c;
 	text-decoration: underline;
 }
-#main {
-	background: #fff;
-	
-	clear: both;
+#center {
+	width: 950px;
 }
-#content{
+#main {
+	width: 750px;
 	background: #fff;
+}
+#content {
+	background: #E6E6FA;
 	clear: both;
 	color: #333;
 	padding: 10px 20px 40px 20px;
 	overflow: auto;
 }
 #footer {
+	background: #125;
 	clear: both;
-	
 	margin: 25px 0px;
 	text-align: center;
 }
@@ -139,7 +141,7 @@ table {
 	border-right:0;
 	clear: both;
 	color: #333;
-	margin-bottom: 10px;
+	margin-bottom: 0;
 	width: 100%;
 }
 th {
@@ -161,9 +163,8 @@ th a.desc:after {
 }
 table tr td {
 	background: #fff;
-	padding: 6px;
+	padding: 3px;
 	text-align: left;
-	vertical-align: top;
 	border-bottom:1px solid #ddd;
 }
 table tr:nth-child(2n) td {
@@ -178,7 +179,7 @@ td.actions {
 }
 table td.actions a {
 	margin: 0px 6px;
-	padding:2px 5px;
+	padding: 2px 5px;
 }
 .cake-sql-log table {
 	background: #f4f4f4;

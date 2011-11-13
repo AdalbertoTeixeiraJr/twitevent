@@ -20,49 +20,54 @@
 	</head>
 	<body>
 		<div id="container">
-			<div id="header">
-				<div id="header_menu">
+			<div id="header">	</div>
+			<div class="menu bubplastic horizontal gray">
+				<?php $logado = $this->Session->read("Usuario"); ?>
+				<?php if (empty($logado)) { ?>
 					<ul>
-						<li><?php echo $html->link("Inicio", array('controller'=>'pages', 'action' => 'home')); ?></li>
-						<li><?php echo $html->link("Eventos", array('controller'=>'Eventos', 'action' => 'index')); ?></li>
-					</ul>
-				</div>
-				<div id="header_menu_user">
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Inicio</b></span>", array('controller'=>'pages', 'action' => 'home'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Eventos</b></span>", array('controller'=>'Eventos', 'action' => 'index'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Sorteios</b></span>", array('controller'=>'Eventos', 'action' => 'sorteios'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Fale Conosco</b></span>", array('controller'=>'pages', 'action' => 'fale'), array('escape' => false)); ?></span></li>
+					</ul>					
+				<?php } ?>
+				<?php if (!empty($logado)) { ?>
 					<ul>
-						<?php $logado = $this->Session->read("Usuario"); ?>
-						<?php if (!empty($logado)) { ?>
-							<li><?php echo $html->link("Logout", array('controller'=>'usuarios', 'action' => 'logout')); ?></li>
-							<li><?php echo $html->link("Meu Calendario", array('controller'=>'usuarios', 'action' => 'calendar', $logado["id"])); ?></li>
-							<li><?php echo $html->link($logado["screen_name"], array('controller'=>'usuarios', 'action' => 'view', $logado["id"])); ?></li>
-						<?php } ?>
-						<?php if (empty($logado)) { ?>
-							<li><?php echo $html->link($html->image('logar-pelo-twitter.png'), array('controller'=>'usuarios', 'action' => 'login'), array('escape' => false)); ?></li>
-						<?php } ?>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Inicio</b></span>", array('controller'=>'pages', 'action' => 'home'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Perfil</b></span>", array('controller' => 'Usuarios', 'action' => 'view'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Meu Calendario</b></span>", array('controller' => 'Usuarios', 'action' => 'calendar', $logado['id']), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Adicionar Evento</b></span>", array('controller' => 'Eventos', 'action' => 'add', $logado['id']), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Sorteios</b></span>", array('controller'=>'Eventos', 'action' => 'sorteios'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Aniversariantes</b></span>", array('controller'=>'Eventos', 'action' => 'index'), array('escape' => false)); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Deletar Perfil</b></span>", array('action' => 'delete', $logado['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $logado['id'])); ?></span></li>
+						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Fale Conosco</b></span>", array('controller'=>'pages', 'action' => 'fale'), array('escape' => false)); ?></span></li>
 					</ul>
-				</div>
+				<?php } ?>
+				<br class="clearit" />
 			</div>
 			
-			<!--<div class="menu bubplastic horizontal gray">
-				<ul>
-					<li><?php //echo $html->link($html->image('logar-pelo-twitter.png'), array('controller'=>'usuarios', 'action' => 'login'), array('escape' => false, 'target' => '_blank')); ?></li>
-					<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Principal</b></span>", array('controller'=>'pages', 'action' => 'display'), array('escape' => false)); ?></span></li>
-					<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Login</b></span>", array('controller'=>'Usuarios', 'action' => 'login'), array('escape' => false)); ?></span></li>
-					<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Cadastrar</b></span>", array('controller'=>'Usuarios', 'action' => 'add'), array('escape' => false)); ?></span></li>
-					<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Eventos</b></span>", array('controller'=>'Eventos', 'action' => 'view'), array('escape' => false)); ?></span></li>
-				</ul>
-				<br class="clearit" />
-			</div>-->
-			
-			<!--<div id="content">
-				<?php
-					echo $content_for_layout;
-				?>
-			</div>-->
-			<?php echo $this->Session->flash(); ?>
-			<div id="main">
-				<?php
-					echo $content_for_layout;
-				?>
+			<div id="container">
+				<div id="destaque">
+					<div id="header_menu_user">
+						<ul>
+							<?php if (empty($logado)) { ?>
+								<li><?php echo $html->link($html->image('logar-pelo-twitter.png'), array('controller'=>'usuarios', 'action' => 'login'), array('escape' => false)); ?></li>
+							<?php } ?>
+							<?php if (!empty($logado)) { ?>
+								<li><?php echo $html->link($html->image('deslogar.png'), array('controller'=>'usuarios', 'action' => 'logout'), array('escape' => false)); ?></li>
+								<li><?php echo $html->link($html->image('siganos.png'), array('controller'=>'usuarios', 'action' => 'seguir'), array('escape' => false)); ?></li>
+							<?php } ?>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div id="center">
+				<div id="main">
+					<?php
+						echo $content_for_layout;
+					?>
+				</div>
 			</div>
 			
 			<div id="footer">

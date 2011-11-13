@@ -33,8 +33,8 @@ class Evento extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'maxlength' => array(
-				'rule' => array('maxlength'),
-				//'message' => 'Your custom message here',
+				'rule' => array('maxlength', 15),
+				'message' => 'o título deve ter um tamanho máximo de 15 caracteres',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
@@ -95,7 +95,7 @@ class Evento extends AppModel {
 		),
 		'local' => array(
 			'custom' => array(
-				'rule' => array('custom'),
+				//'rule' => array('custom'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

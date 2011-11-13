@@ -12,7 +12,7 @@
 	height: 27px;
 	margin: 0;
 	padding: 0;
-	background: #000000 url(images/bg-bubplastic.gif) top left repeat-x;
+	background: #000000 url(images/bg-bubplastic-h.gif) top left repeat-x;
 }
 .bubplastic.horizontal ul {
 	list-style: none;
@@ -23,13 +23,13 @@
 	float: left;
 	margin: 0;
 	padding: 0;
-	background: transparent url(images/bg-bubplastic-button.gif) top left no-repeat;
+	background: transparent url(images/bg-bubplastic-h.gif) top left no-repeat;
 }
 
 .bubplastic.horizontal ul li a {
 	display: block;
 	height: 27px;
-	padding-left: 35px;
+	padding-left: 23px;
 	float: left;
 	text-transform: uppercase;
 	font-family: "Helvetica Neue",helvetica,"microsoft sans serif",arial,sans-serif;
@@ -43,8 +43,8 @@
 	float: left;
 	height: 22px;
 	padding-top: 5px;
-	padding-right: 35px;
-	background: transparent url(images/bg-bubplastic-button.gif) top right no-repeat;
+	padding-right: 23px;
+	background: transparent url(images/bg-bubplastic-h.gif) top right no-repeat;
 	cursor: pointer;
 }
 /* END BUBBLE PLASTIC HORIZONTAL MENU */

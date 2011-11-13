@@ -34,12 +34,12 @@ function loadAux(latitude, longitude){
 </script> 
 </head>
 
-<div class="menu bubplastic horizontal gray">
+<!--<div class="menu bubplastic horizontal gray">
 	<ul>
 		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Perfil</b></span>", array('controller' => 'Usuarios', 'action' => 'view', $evento['Usuario']['id']), array('escape' => false)); ?></span></li>
 	</ul>
 	<br class="clearit" />
-</div>
+</div>-->
 
 <div id="content">
 	<div class="eventos view">

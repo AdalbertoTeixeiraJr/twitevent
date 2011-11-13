@@ -1,11 +1,12 @@
-<div class="menu bubplastic horizontal gray">
+<!--<div class="menu bubplastic horizontal gray">
 	<ul>
+		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Inicio</b></span>", array('controller'=>'pages', 'action' => 'home'), array('escape' => false)); ?></span></li>
+		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Eventos</b></span>", array('controller'=>'Eventos', 'action' => 'index'), array('escape' => false)); ?></span></li>
 		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Adicionar Evento</b></span>", array('controller' => 'Eventos', 'action' => 'add', $usuario['Usuario']['id']), array('escape' => false)); ?></span></li>
 		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Deletar Perfil</b></span>", array('action' => 'delete', $usuario['Usuario']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $usuario['Usuario']['id'])); ?></span></li>
 	</ul>
 	<br class="clearit" />
-</div>
-
+</div>-->
 <div id="content">
 	<h2><img src="<?php echo $usuario['Usuario']['profile_image_url']; ?>" /> <?php  __($usuario['Usuario']['name']);?></h2>
 	<h3>Sobre</h3>

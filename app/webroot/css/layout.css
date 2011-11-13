@@ -3,21 +3,15 @@ body {
 	margin: 0;
 }
 
-#main {
-	background-color: #000;
-}
-
 #container {
-	width: 900px;
-	margin: 0px auto 0px 50px;
-	/*background-color: #ccc;*/
+	width: 950px;
+	margin: 5px auto;
 }
 
 #header {
-	background: url(images/logo.png) no-repeat center top;
-	width: 900px;
-	height: 150px;
-	/*background-color: #000;*/
+	background: url(images/header.png) no-repeat top center;
+	width: 950px;
+	height: 135px;
 }
 
 #header a {
@@ -26,7 +20,26 @@ body {
 	text-decoration: none;
 }
 #header a:hover {
-	color: #fff;
+	color: #CC0000;
 	font-weight: bold;
 	text-decoration: none;
+}
+
+#destaque {
+	background: #FFFFFF url(images/festa.png) no-repeat top center;
+	margin: 0;
+	width: 750px;
+	height: 150px;
+}
+
+#destaque a {
+	color: #fff;
+	font-weight: normal;
+	text-decoration: none;
+}
+#destaque a:hover {
+	color: #CC0000;
+	font-weight: bold;
+	text-decoration: none;
+	border-width: 5px;
 }

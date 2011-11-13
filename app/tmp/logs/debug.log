@@ -524,3 +524,4 @@
 2011-11-06 22:38:50 Debug: Notice (8): Undefined variable: data in [C:\xampp\htdocs\twitevent\app\controllers\eventos_controller.php, line 54]
 2011-11-06 22:40:07 Debug: Notice (8): Undefined index: id in [C:\xampp\htdocs\twitevent\app\controllers\eventos_controller.php, line 32]
 2011-11-06 22:40:31 Debug: Notice (8): Undefined index: id in [C:\xampp\htdocs\twitevent\app\controllers\eventos_controller.php, line 33]
+2011-11-07 03:14:21 Debug: Notice (8): Undefined variable: max in [C:\xampp\htdocs\twitevent\cake\libs\validation.php, line 631]
