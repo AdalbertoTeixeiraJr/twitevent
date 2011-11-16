@@ -32,7 +32,7 @@ class Evento extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'maxlength' => array(
+			/*'maxlength' => array(
 				'rule' => array('maxlength', 15),
 				'message' => 'o título deve ter um tamanho máximo de 15 caracteres',
 				//'allowEmpty' => false,

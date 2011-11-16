@@ -36,7 +36,12 @@ class UsuariosController extends AppController {
 		$eventosConfirmados = array();
 		foreach ($usuario['Presenca'] as $ev) {
 			if ($ev['usuario_id'] == $usuario['Usuario']['id']) {
-				$eventosConfirmados[] = array('Evento' => $this->Usuario->Evento->findById($ev['evento_id']), 'confirmacao' => $ev['confirmacao']);
+				$evento = $this->Usuario->Evento->findById($ev['evento_id']);
+				if (empty($evento)) {
+					$this->delete_confirmacao($ev['evento_id']);
+				} else {
+					$eventosConfirmados[] = array('Evento' => $evento, 'confirmacao' => $ev['confirmacao']);
+				}
 			}
 		}
 		
@@ -202,7 +207,8 @@ class UsuariosController extends AppController {
 			$this->Session->setFlash(__('Confirmação Não Pôde Ser Salva!', true));
 		}
 		
-		
+		//debug($this->Usuario->Evento->get_mensagem_para_divulgacao($id));
+		//$this->Twitter->updateStatus("EU VOU!");
 		$this->redirect(array('action' => 'view', $usuario['Usuario']['id']));
 	}
 	

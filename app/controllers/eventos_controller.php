@@ -28,8 +28,9 @@ class EventosController extends AppController {
 			$this->Evento->create();
 			if ($this->Evento->save($this->data)) {
 				$data = $this->data;
-				$date = strtotime($data['Evento']['data']);
-				$mensagem = $data['Evento']['titulo'] . '. Dia:' . date('j', $date) . '/' . date('M', $date) . '/' . date('Y', $date) . ' às ' . date('g', $date) . ':' . date('i', $date) . ':' . date('A', $date) . ' em ' . $data['Evento']['local'] . '. Ingressos por R$' . $data['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $data['Evento']['usuario_id'], true);
+				//$date = strtotime("11/03/2011 11:00AM");
+				$date = strtotime($data['Evento']['data']['month'] . "/" . $data['Evento']['data']['day'] . "/" . $data['Evento']['data']['year'] . " " . $data['Evento']['data']['hour'] . ":" . $data['Evento']['data']['min'] . "" . $data['Evento']['data']['meridian']);
+				$mensagem = "#TwitEvent_ " . $data['Evento']['titulo'] . '. Dia:' . date('j', $date) . '/' . date('M', $date) . '/' . date('Y', $date) . ' às ' . date('g', $date) . ':' . date('i', $date) . ':' . date('A', $date) . ' em ' . $data['Evento']['local'] . '. Ingressos por R$' . $data['Evento']['preco'] . '. Acessem: ' . Router::url('/usuarios/view/' . $data['Evento']['usuario_id'], true);
 				$this->Session->setFlash(__('The evento has been saved', true));
 				$this->Twitter->updateStatus($mensagem);
 				$this->redirect(array('controller' => 'Usuarios', 'action' => 'view', $usuario['Usuario']['id']));
@@ -153,7 +154,7 @@ class EventosController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function get_mensagem_para_divulgacao($id = null) {
+	public function get_mensagem_para_divulgacao($id = null) {
 		if (!$id) {
 			return "";
 		}
