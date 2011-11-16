@@ -13,16 +13,16 @@ class Evento extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'data' => array(
+		/*'data' => array(
 			'date' => array(
-				'rule' => array('date'),
+				//'rule' => array('date'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-		),
+		),*/
 		'titulo' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
@@ -40,18 +40,18 @@ class Evento extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'alphanumeric' => array(
-				'rule' => array('alphanumeric'),
+			/*'alphanumeric' => array(
+				//'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			),*/
 		),
 		'preco' => array(
-			'custom' => array(
-				'rule' => array('custom'),
+			/*'custom' => array(
+				//'rule' => array('custom'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -59,7 +59,7 @@ class Evento extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 			'decimal' => array(
-				'rule' => array('decimal'),
+				//'rule' => array('decimal'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -73,17 +73,17 @@ class Evento extends AppModel {
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			),*/
 		),
 		'descricao' => array(
-			'alphanumeric' => array(
+			/*'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			),*/
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -94,14 +94,14 @@ class Evento extends AppModel {
 			),
 		),
 		'local' => array(
-			'custom' => array(
+			/*'custom' => array(
 				//'rule' => array('custom'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			),*/
 		),
 	);
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

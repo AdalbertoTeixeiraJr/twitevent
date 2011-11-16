@@ -141,3 +141,4 @@
 2011-11-06 22:12:27 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\xampp\htdocs\twitevent\cake\basics.php:139) in [C:\xampp\htdocs\twitevent\cake\libs\controller\controller.php, line 742]
 2011-11-06 22:42:03 Warning: Warning (2): strtotime() expects parameter 1 to be string, array given in [C:\xampp\htdocs\twitevent\app\controllers\eventos_controller.php, line 32]
 2011-11-07 03:14:21 Warning: Warning (2): Missing argument 2 for Validation::maxLength(), called in C:\xampp\htdocs\twitevent\cake\libs\object.php on line 112 and defined in [C:\xampp\htdocs\twitevent\cake\libs\validation.php, line 629]
+2011-11-16 03:36:24 Warning: Warning (2): strtotime() expects parameter 1 to be string, array given in [C:\xampp\htdocs\twitevent\app\controllers\eventos_controller.php, line 31]

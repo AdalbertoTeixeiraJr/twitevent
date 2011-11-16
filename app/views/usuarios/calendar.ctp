@@ -45,12 +45,7 @@
 	});
 	", array('inline' => false));
 ?>
-<div class="menu bubplastic horizontal gray">
-	<ul>
-		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Perfil</b></span>", array('controller' => 'Usuarios', 'action' => 'view', $usuario['Usuario']['id']), array('escape' => false)); ?></span></li>
-	</ul>
-	<br class="clearit" />
-</div>
+
 <div id="content">
 	<div id='calendar'></div>
 </div>

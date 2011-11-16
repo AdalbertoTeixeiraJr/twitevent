@@ -1,6 +1,3 @@
-<!--<div class="menu bubplastic horizontal gray">
-	<br class="clearit" />
-</div>-->
 <div class="content">
 	<h2><?php __('Eventos');?></h2>
 	<table cellpadding="0" cellspacing="0">

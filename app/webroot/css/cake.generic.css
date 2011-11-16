@@ -94,15 +94,16 @@ ul, li {
 	background: #003d4c;
 	text-decoration: underline;
 }
-#center {
-	width: 950px;
+#twitter {
+	float: right;
+	width: auto;
 }
 #main {
 	width: 750px;
-	background: #fff;
+	float: left;
 }
 #content {
-	background: #E6E6FA;
+	background: #fff;
 	clear: both;
 	color: #333;
 	padding: 10px 20px 40px 20px;

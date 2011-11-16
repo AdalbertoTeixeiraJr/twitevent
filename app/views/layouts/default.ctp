@@ -27,7 +27,6 @@
 					<ul>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Inicio</b></span>", array('controller'=>'pages', 'action' => 'home'), array('escape' => false)); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Eventos</b></span>", array('controller'=>'Eventos', 'action' => 'index'), array('escape' => false)); ?></span></li>
-						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Sorteios</b></span>", array('controller'=>'Eventos', 'action' => 'sorteios'), array('escape' => false)); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Fale Conosco</b></span>", array('controller'=>'pages', 'action' => 'fale'), array('escape' => false)); ?></span></li>
 					</ul>					
 				<?php } ?>
@@ -37,7 +36,6 @@
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Perfil</b></span>", array('controller' => 'Usuarios', 'action' => 'view'), array('escape' => false)); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Meu Calendario</b></span>", array('controller' => 'Usuarios', 'action' => 'calendar', $logado['id']), array('escape' => false)); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Adicionar Evento</b></span>", array('controller' => 'Eventos', 'action' => 'add', $logado['id']), array('escape' => false)); ?></span></li>
-						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Sorteios</b></span>", array('controller'=>'Eventos', 'action' => 'sorteios'), array('escape' => false)); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Aniversariantes</b></span>", array('controller'=>'Eventos', 'action' => 'index'), array('escape' => false)); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Deletar Perfil</b></span>", array('action' => 'delete', $logado['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $logado['id'])); ?></span></li>
 						<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Fale Conosco</b></span>", array('controller'=>'pages', 'action' => 'fale'), array('escape' => false)); ?></span></li>
@@ -54,19 +52,49 @@
 								<li><?php echo $html->link($html->image('logar-pelo-twitter.png'), array('controller'=>'usuarios', 'action' => 'login'), array('escape' => false)); ?></li>
 							<?php } ?>
 							<?php if (!empty($logado)) { ?>
-								<li><?php echo $html->link($html->image('deslogar.png'), array('controller'=>'usuarios', 'action' => 'logout'), array('escape' => false)); ?></li>
+								<li><?php echo $html->link($html->image('deslogar.png'), array('controller'=>'usuarios', 'action' => 'logout'), array('escape' => false)); ?></li><br><br>
 								<li><?php echo $html->link($html->image('siganos.png'), array('controller'=>'usuarios', 'action' => 'seguir'), array('escape' => false)); ?></li>
 							<?php } ?>
 						</ul>
 					</div>
 				</div>
 			</div>
-
-			<div id="center">
+			
+			<div id="container">
 				<div id="main">
-					<?php
-						echo $content_for_layout;
-					?>
+					<?php echo $content_for_layout; ?>
+				</div>
+				<div id="twitter">
+					<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+					<script>
+						new TWTR.Widget({
+						version: 2,
+						type: 'search',
+						search: '#TwitEvent_',
+						interval: 30000,
+						title: '',
+						subject: 'TwitEvent',
+						width: 185,
+						height: 300,
+						theme: {
+							shell: {
+								background: '#254A7A',
+								color: '#ffffff'
+							},
+							tweets: {
+								background: '#ffffff',
+								color: '#444444',
+								links: '#1985b5'
+							}
+						},
+						features: {
+							scrollbar: false,
+							loop: false,
+							live: true,
+							behavior: 'all'
+						}
+						}).render().start();
+					</script>
 				</div>
 			</div>
 			

@@ -5,7 +5,7 @@ body {
 
 #container {
 	width: 950px;
-	margin: 5px auto;
+	margin: 2px auto;
 }
 
 #header {
@@ -26,8 +26,8 @@ body {
 }
 
 #destaque {
-	background: #FFFFFF url(images/festa.png) no-repeat top center;
-	margin: 0;
+	background: transparent url(images/festa.png) no-repeat top center;
+	margin-bottom: 15px;
 	width: 750px;
 	height: 150px;
 }

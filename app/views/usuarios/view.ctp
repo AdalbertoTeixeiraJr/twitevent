@@ -1,12 +1,3 @@
-<!--<div class="menu bubplastic horizontal gray">
-	<ul>
-		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Inicio</b></span>", array('controller'=>'pages', 'action' => 'home'), array('escape' => false)); ?></span></li>
-		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Eventos</b></span>", array('controller'=>'Eventos', 'action' => 'index'), array('escape' => false)); ?></span></li>
-		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Adicionar Evento</b></span>", array('controller' => 'Eventos', 'action' => 'add', $usuario['Usuario']['id']), array('escape' => false)); ?></span></li>
-		<li><span class="menu_r"><?php echo $html->link("<span class=\"menu_ar\">Deletar Perfil</b></span>", array('action' => 'delete', $usuario['Usuario']['id']), array('escape' => false), sprintf(__('Are you sure you want to delete # %s?', true), $usuario['Usuario']['id'])); ?></span></li>
-	</ul>
-	<br class="clearit" />
-</div>-->
 <div id="content">
 	<h2><img src="<?php echo $usuario['Usuario']['profile_image_url']; ?>" /> <?php  __($usuario['Usuario']['name']);?></h2>
 	<h3>Sobre</h3>
@@ -86,13 +77,9 @@
 					<td><?php echo $ev['Evento']['Evento']['data'];?></td>
 					<td><?php echo $ev['Evento']['Evento']['local'];?></td>
 					<td><?php echo $ev['Evento']['Evento']['preco'];?></td>
-					<td><?php echo $ev['confirmacao'];?></td>
+					<td><center><?php echo $ev['confirmacao'];?></center></td>
 					<td class="actions">
-							<?php echo $this->Html->link(__('Vou', true), array('controller' => 'usuarios', 'action' => 'add_confirmacao', $ev['Evento']['Evento']['id'], "vou")); ?>
-							<?php echo $this->Html->link(__('Talvez', true), array('controller' => 'usuarios', 'action' => 'add_confirmacao', $ev['Evento']['Evento']['id'], "talvez")); ?>
-							<?php echo $this->Html->link(__('Cancelar', true), array('controller' => 'usuarios', 'action' => 'delete_confirmacao', $ev['Evento']['Evento']['id'])); ?>
-						</td>
-					<td class="actions">
+						<?php echo $this->Html->link(__('Cancelar', true), array('controller' => 'usuarios', 'action' => 'delete_confirmacao', $ev['Evento']['Evento']['id'])); ?> <br><br>
 						<?php echo $this->Html->link(__('Visualizar', true), array('controller' => 'eventos', 'action' => 'view', $ev['Evento']['Evento']['id'])); ?>
 					</td>
 				</tr>
@@ -129,7 +116,7 @@
 						}
 					?>
 					<tr<?php echo $class;?>>
-						<td><?php echo $this->Html->link($evento['usuario_id'], array('controller' => 'usuarios', 'action' => 'view', $evento['usuario_id'])); ?></td>
+						<td><?php echo $this->Html->link($ev['Evento']['Usuario']['screen_name'], array('controller' => 'usuarios', 'action' => 'view', $ev['Evento']['Evento']['usuario_id'])); ?></td>
 						<td><?php echo $evento['titulo'];?></td>
 						<td><?php echo $evento['descricao'];?></td>
 						<td><?php echo $evento['data'];?></td>
